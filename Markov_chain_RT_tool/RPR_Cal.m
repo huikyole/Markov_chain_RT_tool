@@ -1,0 +1,19 @@
+function [RPRsur11,RPRsur12,RPRsur13,...
+          RPRsur21,RPRsur22,RPRsur23,RPRsur24,...
+          RPRsur31,RPRsur32,RPRsur33,RPRsur34,...
+          RPRsur42,RPRsur43,RPRsur44]=RPR_Cal(P11,P12,P22,P33,P34,P44,cos2alfa0,sin2alfa0,cos2alfa,sin2alfa)
+RPRsur11=P11;
+RPRsur12=P12.*cos2alfa0;
+RPRsur13=-P12.*sin2alfa0;
+RPRsur21=P12.*cos2alfa;
+RPRsur22=cos2alfa.*P22.*cos2alfa0-sin2alfa.*P33.*sin2alfa0;
+RPRsur23=-cos2alfa.*P22.*sin2alfa0-sin2alfa.*P33.*cos2alfa0;
+RPRsur24=-P34.*sin2alfa;
+RPRsur31=P12.*sin2alfa;
+RPRsur32=sin2alfa.*P22.*cos2alfa0+cos2alfa.*P33.*sin2alfa0;
+RPRsur33=-sin2alfa.*P22.*sin2alfa0+cos2alfa.*P33.*cos2alfa0;
+RPRsur34=P34.*cos2alfa;            
+RPRsur42=-P34.*sin2alfa0;
+RPRsur43=-P34.*cos2alfa0;
+RPRsur44=P44;
+end

@@ -584,19 +584,20 @@ if isequal(Computation_mode,'vector2')==1
 end
 
 Nstep=10;
-figure('position',[300,300,650,500])
-axes1 = axes('Fontsize',14,'box','on') 
-plot([-acos(XMUview),fliplr(acos(XMUview))]*180/pi,[ISMview(2,:),fliplr(ISMview(1,:))],'linestyle','-','color','b','linewidth',1.0);
-hold on
-plot([-acos(XMUview),fliplr(acos(XMUview))]*180/pi,-10*[QSMview(2,:),fliplr(QSMview(1,:))],'linestyle','-','color','r','linewidth',1.0);
-hold on
-legend('Markov Chain: I ','Markov Chain: -10Q')
-output_array = transpose([[-acos(XMUview),fliplr(acos(XMUview))]*180/pi;[ISMview(2,:),fliplr(ISMview(1,:))];-10*[QSMview(2,:),fliplr(QSMview(1,:))]])
-csvwrite('Output/output_935.csv', output_array)
+%figure('position',[300,300,650,500])
+%axes1 = axes('Fontsize',14,'box','on') 
+%plot([-acos(XMUview),fliplr(acos(XMUview))]*180/pi,[ISMview(2,:),fliplr(ISMview(1,:))],'linestyle','-','color','b','linewidth',1.0);
+%hold on
+%plot([-acos(XMUview),fliplr(acos(XMUview))]*180/pi,-10*[QSMview(2,:),fliplr(QSMview(1,:))],'linestyle','-','color','r','linewidth',1.0);
+%hold on
+%legend('Markov Chain: I ','Markov Chain: -10Q')
+output_array = transpose([[-acos(XMUview),fliplr(acos(XMUview))]*180/pi;[ISMview(2,:),fliplr(ISMview(1,:))];[QSMview(2,:),fliplr(QSMview(1,:))];[USMview(2,:),fliplr(USMview(1,:))]])
+output_file=parameters.output_file
+csvwrite(output_file, output_array)
 
-xlim([-90,90])
-xTickLabels=[-90:30:90];
-set(gca,'Xtick', xTickLabels);
-xlabel('\Theta (deg)','Fontsize',14,'Fontname','Times New Roman')
-ylabel('\pi*S/\mu_{0} ','Fontsize',14,'Fontname','Times New Roman')
+%xlim([-90,90])
+%xTickLabels=[-90:30:90];
+%set(gca,'Xtick', xTickLabels);
+%xlabel('\Theta (deg)','Fontsize',14,'Fontname','Times New Roman')
+%ylabel('\pi*S/\mu_{0} ','Fontsize',14,'Fontname','Times New Roman')
 %% ========================================================== %% 
